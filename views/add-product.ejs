@@ -1,0 +1,22 @@
+<%- include('includes/head.ejs') %>
+  <body>
+   <%- include('includes/navigation.ejs') %>
+    <main class="container-fluid">
+      <form action="add-product" method="POST">
+        <div class="mb-3 mx-auto col-md-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Title</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="title"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-15 mx-auto d-block">Add product</button>
+      </form>
+    </main>
+<%- include('includes/end.ejs') %>
+

@@ -1,0 +1,28 @@
+<%- include('includes/head.ejs') %>
+  <body>
+    <%- include('includes/navigation.ejs')%>
+    <main class="p-4 container-lg">
+        <% if(prods.length > 0) { %>
+            <div class="row justify-content-center gap-3">
+                <% for (let product of prods) { %>
+                    <div class="card mt-3 col-4" style="width: 18rem">
+                        <img
+                            class="card-img-top mx-auto"
+                            src="https://th.bing.com/th/id/OIP.lI9wqWI25PmZGtF12Q438AHaCo?w=323&h=124&c=7&r=0&o=5&pid=1.7"
+                            alt="..."
+                        />
+                        <div class="card-body">
+                            <h5 class="card-title"><%= product.title %></h5>
+                            <p class="card-text">
+                            Some quick example text to build on the card title
+                            </p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No products found</h1>
+        <% } %>
+    </main>
+<%- include('includes/end.ejs')%>
