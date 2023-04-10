@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+    <%- include('../includes/navigation.ejs')%>
+    <main class="p-4 container-lg">
+        <% if(prods.length > 0) { %>
+            <div class="row justify-content-center gap-3">
+                <% for (let product of prods) { %>
+                    <div class="card mt-3 col-4" style="width: 18rem">
+                        <img
+                            class="card-img-top mx-auto"
+                            src="<%= product.imageUrl %>"
+                            alt="..."
+                            style="height: 350px; width: 270px; object-fit: cover;"
+                        />
+                        <div class="card-body">
+                            <h5 class="card-title"><%= product.title %></h5>
+                            <h4 class="card-title"><%= product.price %></h4>
+                            <p class="card-text">
+                                <%= product.desc %>
+                            </p>
+                            <div class="d-flex algin-items-center">
+                                <a href="/admin/edit-product/<%= product.id %>?edit=true" class="btn btn-primary mx-2">Update</a>
+                                <form action="/admin/delete-product" method="POST" class="mt-2">
+                                  <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No products found</h1>
+        <% } %>
+    </main>
+<%- include('../includes/end.ejs')%>

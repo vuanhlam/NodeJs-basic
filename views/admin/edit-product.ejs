@@ -1,0 +1,45 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+   <%- include('../includes/navigation.ejs') %>
+    <main class="container-fluid">
+      <form action="<% if(edit) { %>edit-product<% } else { %> add-product <% } %>" method="POST">
+        <div class="mb-3 mx-auto col-md-3">
+          <label for="email" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="title"
+            value="<% if(edit) { %><%= product.title %><% }%>"
+          /> 
+        </div>
+        <div class="mb-3 mx-auto col-md-3">
+          <label for="imageUrl" class="form-label">Image URL</label>
+          <input
+            type="text"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+            value="<% if(edit) { %><%= product.imageUrl %><% }%>"
+          /> 
+        </div>
+        <div class="mb-3 mx-auto col-md-3">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price" 
+            name="price"
+            step="0.01"
+            value="<% if(edit) { %><%= product.price %><% }%>"
+          /> 
+        </div>
+        <div class="mb-3 mx-auto col-md-3">
+          <label for="desc" class="form-label">Description</label>
+          <textarea class="form-control"   name="desc"><% if(edit) { %><%= product.description %><% }%></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-15 mx-auto d-block"><% if(edit) { %>Update Product<% } else { %> Add product <% } %></button>
+      </form>
+    </main>
+<%- include('../includes/end.ejs') %>
+
